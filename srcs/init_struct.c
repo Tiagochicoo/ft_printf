@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:42:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/25 22:49:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:22:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ t_flag	*new_flags(void)
 	if (!flags)
 		return (NULL);
 	flags->has_minusflag = 0;
+	flags->has_zeroflag = 0;
+	flags->has_pointflag = 0;
+	flags->has_starflag = 0;
+	flags->has_hashflag = 0;
+	flags->has_plusflag = 0;
+	flags->has_spaceflag = 0;
+	flags->has_dotflag = 0;
+	flags->has_lflag = 0;
+	flags->has_hflag = 0;
+
 	return (flags);
 }
 
@@ -27,4 +37,23 @@ void	init_struct(t_arg *arg)
 {
 	arg->type = is_null;
 	arg->flags = new_flags();
+	arg->fieldwidth = -1;
+	arg->precision = -1;
+	arg->modifiers = NULL;
+	arg->specifier = 0;
+	arg->is_invalid = 0;
+	arg->is_negative = 0;
+	arg->base = 10;
+	arg->data = NULL;
+	arg->str = NULL;
+	arg->wstr = NULL;
+}
+
+void	set_struct(char *input, t_arg *arg_struct, va_list *args)
+{
+	input++;
+	set_flags(&input, arg_struct);
+	set_width(&input, arg_struct, args);
+	set_precision(&input, arg_struct);
+	set_specifier(&input, arg_struct);
 }
