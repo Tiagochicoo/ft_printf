@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_mods_specs.c                                   :+:      :+:    :+:   */
+/*   set_chars_strings.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 10:23:37 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 10:27:51 by tpereira         ###   ########.fr       */
+/*   Created: 2021/05/26 10:46:53 by tpereira          #+#    #+#             */
+/*   Updated: 2021/05/26 10:53:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	set_specifier(char **input, t_arg *arg_struct)
+void	set_char(t_arg *arg_struct, va_list *args)
 {
-	char specifier;
+	char	c;
 
-	specifier = **input;
-	if (!(ft_isalpha(specifier) || specifier == '%'))
-		return ;
-	(*input)++;
-	arg_struct->specifier = specifier;
+	c = (char)va_arg(*args, int);
+	arg_struct->data = &c;
+	if (c)
+		arg_struct->str = ft_chrtostr(c);
 }

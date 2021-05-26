@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:42:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 10:22:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:31:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ void	set_struct(char *input, t_arg *arg_struct, va_list *args)
 	set_width(&input, arg_struct, args);
 	set_precision(&input, arg_struct);
 	set_specifier(&input, arg_struct);
+	set_type(arg_struct);
+	set_data(arg_struct, args);
 }

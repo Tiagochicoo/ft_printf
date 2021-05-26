@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 10:19:39 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 11:10:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,14 @@ void	set_precision(char **input, t_arg *arg_struct)
 	}
 	while (**input == '.' || ft_isdigit(**input))
 		input++;
+}
+
+void	clean_flags(t_arg *arg_struct)
+{
+	if (arg_struct->flags->has_spaceflag && arg_struct->flags->has_plusflag)
+		arg_struct->flags->has_spaceflag = 0;
+	if (arg_struct->flags->has_zeroflag && arg_struct->flags->has_minusflag)
+		arg_struct->flags->has_zeroflag = 0;
+	if (arg_struct->flags->has_zeroflag && arg_struct->precision != -1)
+		arg_struct->flags->has_zeroflag = 0;
 }

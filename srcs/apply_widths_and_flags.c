@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_mods_specs.c                                   :+:      :+:    :+:   */
+/*   apply_widths_and_flags.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 10:23:37 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 10:27:51 by tpereira         ###   ########.fr       */
+/*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
+/*   Updated: 2021/05/26 11:24:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	set_specifier(char **input, t_arg *arg_struct)
+void	manage_precision(t_arg *arg_struct)
 {
-	char specifier;
+	
+}
 
-	specifier = **input;
-	if (!(ft_isalpha(specifier) || specifier == '%'))
-		return ;
-	(*input)++;
-	arg_struct->specifier = specifier;
+void	apply_widths_and_flags(t_arg *arg_struct)
+{
+	manage_precision(arg_struct);
 }
