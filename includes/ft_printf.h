@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/24 16:24:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:25:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,30 +63,30 @@ typedef struct s_arg {
 char	*read_str(char **str);
 t_arg	read_arg(char *input, va_list *args);
 
-void	free_struct(t_arg *ptr_arg_struct);
-void	set_struct(char *input_block, t_arg *ptr_arg_struct, va_list *args);
+void	free_struct(t_arg *arg_struct);
+void	set_struct(char *input, t_arg *arg_struct, va_list *args);
 void	init_struct(t_arg *arg);
 t_flag	*new_flags(void);
 
-void	set_flags(char **str_block, t_arg *ptr_arg_struct);
-void	set_width(char **str_block, t_arg *ptr_arg_struct, va_list *args);
-void	set_precision(char **str_block, t_arg *ptr_arg_struct);
-void	set_modifiers(char **str_block, t_arg *ptr_arg_struct);
-void	set_specifier(char **str_block, t_arg *ptr_arg_struct);
-void	set_type(t_arg *ptr_arg_struct);
-void	set_data(t_arg *ptr_arg_struct, va_list *arg_ptr);
-void	set_char(t_arg *ptr_arg_struct, va_list *args);
-void	set_wstring(t_arg *ptr_arg_struct, va_list *args);
-void	set_wchar(t_arg *ptr_arg_struct, va_list *args);
-void	set_string(t_arg *ptr_arg_struct, va_list *args);
-void	set_is_negative(t_arg *ptr_arg_struct);
-void	set_base(t_arg *ptr_arg_struct);
-void	clean_flags(t_arg *ptr_arg_struct);
+void	set_flags(char **str_block, t_arg *arg_struct);
+void	set_width(char **str_block, t_arg *arg_struct, va_list *args);
+void	set_precision(char **str_block, t_arg *arg_struct);
+void	set_modifiers(char **str_block, t_arg *arg_struct);
+void	set_specifier(char **str_block, t_arg *arg_struct);
+void	set_type(t_arg *arg_struct);
+void	set_data(t_arg *arg_struct, va_list *arg_ptr);
+void	set_char(t_arg *arg_struct, va_list *args);
+void	set_wstring(t_arg *arg_struct, va_list *args);
+void	set_wchar(t_arg *arg_struct, va_list *args);
+void	set_string(t_arg *arg_struct, va_list *args);
+void	set_is_negative(t_arg *arg_struct);
+void	set_base(t_arg *arg_struct);
+void	clean_flags(t_arg *arg_struct);
 
-void	manage_zero_width(t_arg *ptr_arg_struct);
-void	manage_hash(t_arg *ptr_arg_struct);
-void	manage_sign(t_arg *ptr_arg_struct);
-void	apply_widths_and_flags(t_arg *ptr_arg_struct);
+void	manage_zero_width(t_arg *arg_struct);
+void	manage_hash(t_arg *arg_struct);
+void	manage_sign(t_arg *arg_struct);
+void	apply_widths_and_flags(t_arg *arg_struct);
 
 # define FLAGS "-0.*#+lh"
 # define DIGITS "0123456789"

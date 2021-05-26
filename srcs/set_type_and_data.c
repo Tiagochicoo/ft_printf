@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 11:02:09 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:18:59 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	set_type(t_arg *arg_struc)
 {
 	char	s;
-	char	*m;
 
 	s = arg_struc->specifier;
-	m = arg_struc->modifiers;
 	if (s == 'c')
 		arg_struc->type = is_char;
 	else

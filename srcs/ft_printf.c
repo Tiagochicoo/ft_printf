@@ -6,11 +6,26 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/25 21:10:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:19:38 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	write_arg(t_arg arg_struct)
+{
+	int	str_size;
+
+	if (arg_struct.type == is_char && arg_struct.str == NULL)
+		str_size = ft_putchar(0);
+	else if (arg_struct.is_invalid == 1)
+		str_size = 0;
+	else if (ft_strlen(arg_struct.str) == 1)
+		str_size = ft_putchar(*arg_struct.str);
+	else
+		str_size = ft_putstr(arg_struct.str);
+	return (str_size);
+}
 
 int	print_data(char *format_copy, va_list *args)
 {

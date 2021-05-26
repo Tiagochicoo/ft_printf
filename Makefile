@@ -6,14 +6,14 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/05/25 21:43:24 by tpereira         ###   ########.fr        #
+#    Updated: 2021/05/26 15:03:39 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libftprintf.a
 CC 			= gcc
 CFLAGS 		= -Wall -Wextra -Werror
-SRCS 		= ./srcs/*.c
+SRCS 		= $(wildcard ./srcs/*.c)
 LIB_SRCS	= mv $(LIB_NAME)/libft.a ./$(NAME)
 OBJS 		= $(SRCS:.c=.o)
 LIB_OBJS	= $(LIB_SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:44:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/25 22:35:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:46:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,16 @@ int	get_len_to_spec(char *str, char c)
 int	get_var_len(char *str)
 {
 	int i;
-	int n;
 
 	while (str[i] != 'c')
 		i++;
-	return (i);
+	return (i + 1);
 }
 
 char	*read_str(char **str)
 {
 	int		len;
-	char	str_block;
+	char	*str_block;
 
 	len = 0;
 	if (**str == '\0')

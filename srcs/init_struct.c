@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:42:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 10:31:51 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:33:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,20 @@ void	set_struct(char *input, t_arg *arg_struct, va_list *args)
 	set_specifier(&input, arg_struct);
 	set_type(arg_struct);
 	set_data(arg_struct, args);
+}
+
+void	free_struct(t_arg *arg_struct)
+{
+	free(arg_struct->flags);
+	arg_struct->flags = NULL;
+	if (arg_struct->modifiers)
+	{
+		free(arg_struct->modifiers);
+		arg_struct->modifiers = NULL;
+	}
+	if (arg_struct->str)
+	{
+		free(arg_struct->str);
+		arg_struct->str = NULL;
+	}
 }

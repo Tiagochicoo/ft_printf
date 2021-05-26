@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 11:10:18 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:34:50 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	set_width(char **input, t_arg *arg_struct, va_list *args)
 
 void	set_precision(char **input, t_arg *arg_struct)
 {
-	int		num_str[12];
+	char		num_str[12];
 	int		i;
 
 	if (**input == '.')
@@ -71,7 +71,7 @@ void	set_precision(char **input, t_arg *arg_struct)
 				i++;
 			}
 			num_str[i] = '\0';
-			arg_struct->precision ==ft_atoi(num_str);		
+			arg_struct->precision = ft_atoi(num_str);		
 		}
 		else
 			arg_struct->precision = 0;
