@@ -55,4 +55,4 @@ dkms.conf
 tester/
 libftprintf.a
 a.out
-
+*.o
