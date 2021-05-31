@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 15:34:50 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/05/31 12:20:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	set_precision(char **input, t_arg *arg_struct)
 	char		num_str[12];
 	int		i;
 
-	if (**input == '.')
+	if (arg_struct->flags->has_dotflag)
 	{
 		input++;
 		if (ft_isdigit(**input))

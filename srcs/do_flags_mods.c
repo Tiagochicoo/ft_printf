@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_type_and_data.c                                :+:      :+:    :+:   */
+/*   do_flags_mods.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/27 14:11:07 by tpereira         ###   ########.fr       */
+/*   Created: 2021/05/31 11:49:57 by tpereira          #+#    #+#             */
+/*   Updated: 2021/05/31 11:53:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	set_type(t_arg *arg_struc)
+void	manage_zero_width(t_arg *arg_struct)
 {
-	char	s;
+	int	len;
 
-	s = arg_struc->specifier;
-	if (s == 'c')
-		arg_struc->type = is_char;
-	else if (s == 's')
-		arg_struc->type = is_string;
-	else
-		arg_struc->type = is_null;
-}
-
-void	set_data(t_arg *arg_struct, va_list *args)
-{
-	void	(*set_datatype[8])(t_arg *, va_list *);
-
-	set_datatype[is_char] = set_char;
-	set_datatype[is_string] = set_string;
-	set_datatype[arg_struct->type](arg_struct, args);
+	if (arg_struct->fieldwidth != -1 && arg_struct->flags->has_zeroflag)
+	{
+		len = get_zero_field_len(arg_struct);
+		if (len > 0)
+			ft_addnfix(&(arg_struct->str), '0', len, 1);
+	}
 }
