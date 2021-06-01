@@ -6,11 +6,26 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:49:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/31 11:53:18 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/01 09:39:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		get_zero_field_len(t_arg *arg_struct)
+{
+	int	len;
+
+	len = arg_struct->fieldwidth - ft_strlen(arg_struct->str);
+	if (arg_struct->flags->has_spaceflag || arg_struct->flags->has_plusflag
+		|| arg_struct->is_negative)
+		len = len - 1;
+	if (arg_struct->flags->has_hashflag && arg_struct->base == 8)
+		len = len - 2;
+	if (arg_struct->flags->has_hashflag && arg_struct->base == 16)
+		len = len - 2;
+	return (len);
+}
 
 void	manage_zero_width(t_arg *arg_struct)
 {

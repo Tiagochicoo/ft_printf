@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/27 14:15:23 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/01 09:29:39 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	manage_hash(t_arg *arg_struct);
 void	manage_sign(t_arg *arg_struct);
 void	apply_widths_and_flags(t_arg *arg_struct);
 
-# define FLAGS "-0.*#+lh"
+# define FLAGS "-0*#+lh"
 # define DIGITS "0123456789"
 # define PRECISION_SEP "."
 # define MODIFIERS "hljz"

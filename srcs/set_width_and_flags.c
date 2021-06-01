@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/31 12:20:37 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/01 09:56:16 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	set_flags(char **input, t_arg *arg_struct)
 {
-	while (**input == '-' || **input == '0' || **input == '.'
-		|| **input == '*')
+	while (**input == '-' || **input == '0' || **input == '*')
 	{
 		if (**input == '-')
 			arg_struct->flags->has_minusflag = 1;
 		if (**input == '0')
 			arg_struct->flags->has_zeroflag = 1;
-		if (**input == '.')
-			arg_struct->flags->has_dotflag = 1;
 		if (**input == '*')
 			arg_struct->flags->has_starflag = 1;
 		(*input)++;
@@ -58,7 +55,7 @@ void	set_precision(char **input, t_arg *arg_struct)
 	char		num_str[12];
 	int		i;
 
-	if (arg_struct->flags->has_dotflag)
+	if (**input == '.')
 	{
 		input++;
 		if (ft_isdigit(**input))
