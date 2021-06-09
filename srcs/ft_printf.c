@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 15:21:34 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:04:25 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	write_arg(t_arg arg_struct)
 		else
 			str_size = ft_putstr(arg_struct.str);
 	}
-	else if (arg_struct.specifier == 'p')
+	else if (arg_struct.specifier == 'p' && arg_struct.fieldwidth <= 0)
 	{
 		str_size = ft_putstr("0x");
 		str_size += ft_putstr(arg_struct.str);
