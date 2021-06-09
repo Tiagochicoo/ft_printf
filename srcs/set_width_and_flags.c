@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/01 18:17:22 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/09 09:16:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	set_width(char **input, t_arg *arg_struct, va_list *args)
 {
 	char	num_str[12];
 	int		i;
-
 	if (arg_struct->flags->has_starflag)
 	{
 		i = va_arg(*args, int);
@@ -46,7 +45,7 @@ void	set_width(char **input, t_arg *arg_struct, va_list *args)
 			i++;
 		}
 		num_str[i] = '\0';
-		arg_struct->fieldwidth = ft_atoi(num_str);		
+		arg_struct->fieldwidth = ft_atoi(num_str);
 	}
 }
 

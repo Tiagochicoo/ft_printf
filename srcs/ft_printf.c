@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/02 11:37:09 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/08 19:13:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,26 @@ int	write_arg(t_arg arg_struct)
 			}
 		}
 	}
-	// else if (arg_struct.type == is_string && arg_struct.precision > 0)
-	// {
-	// 	if (arg_struct.fieldwidth < -1)
-	// 	{
-	// 		ft_putstr(arg_struct.str);
-	// 		while (arg_struct.fieldwidth < -1)
-	// 		{
-	// 			str_size += ft_putchar(' ');
-	// 			arg_struct.fieldwidth++;
-	// 		}
-	// 	}
-	// }
-
 	else if (arg_struct.is_invalid == 1)
 		str_size = 0;
 	else if (ft_strlen(arg_struct.str) == 1)
 		str_size = ft_putchar(*arg_struct.str);
+	
+	else if (arg_struct.type == is_string && arg_struct.fieldwidth != -1)
+	{
+		if (arg_struct.fieldwidth < 0)
+		{
+			str_size = ft_putstr(arg_struct.str);
+			while (arg_struct.fieldwidth < (int)(ft_strlen(arg_struct.str) * -1))
+			{
+				str_size += ft_putchar(' ');
+				arg_struct.fieldwidth++;
+			}
+		}
+		else
+			str_size = ft_putstr(arg_struct.str);
+	}
+
 	else
 		str_size = ft_putstr(arg_struct.str);
 	if (arg_struct.str && ft_strlen(arg_struct.str) == 1
