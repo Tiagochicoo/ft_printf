@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_mods_specs.c                                   :+:      :+:    :+:   */
+/*   set_options.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 10:23:37 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 14:36:09 by tpereira         ###   ########.fr       */
+/*   Created: 2021/06/09 09:33:52 by tpereira          #+#    #+#             */
+/*   Updated: 2021/06/09 09:40:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	set_specifier(char **input, t_arg *arg_struct)
+void	set_base(t_arg *arg_struct)
 {
-	char specifier;
+	char	s;
 
-	specifier = **input;
-	if (!(ft_isalpha(specifier) || specifier == '%'))
-		return ;
-	(*input)++;
-	arg_struct->specifier = (char)specifier;
+	s = arg_struct->specifier;
+	if (s == 'p')
+		arg_struct->base = 16;
 }

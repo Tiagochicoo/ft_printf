@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 08:50:22 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/09 09:20:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef enum e_type {
 	is_unum,
 	is_char,
 	is_string,
+	is_pointer,
 	is_wchar,
 	is_wstring,
 	is_escape,
