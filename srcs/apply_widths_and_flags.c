@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 19:07:36 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/11 15:20:53 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,25 @@ void	manage_width(t_arg *arg_struct)
 			len = arg_struct->fieldwidth - ft_strlen(arg_struct->str);
 		if (len > 0)
 		{
-			if (arg_struct->type == is_unum && !arg_struct->flags->has_minusflag)
-			{
-				ft_addnfix(&(arg_struct->str), 'x', 1, 1);
-				ft_addnfix(&(arg_struct->str), '0', 1, 1);
-				ft_addnfix(&(arg_struct->str), ' ', len - 3, 1);
-			}
 			if (arg_struct->type == is_unum && arg_struct->flags->has_minusflag)
 			{
 				ft_addnfix(&(arg_struct->str), 'x', 1, 1);
 				ft_addnfix(&(arg_struct->str), '0', 1, 1);
+				len -= 2;
 				ft_addnfix(&(arg_struct->str), ' ', len, 2);
+			}
+			else if (arg_struct->type == is_unum && !arg_struct->flags->has_minusflag)
+			{
+				ft_addnfix(&(arg_struct->str), 'x', 1, 1);
+				ft_addnfix(&(arg_struct->str), '0', 1, 1);
+				len -= 2;
+				ft_addnfix(&(arg_struct->str), ' ', len, 1);
 			}
 			else if (arg_struct->flags->has_minusflag)
 				ft_addnfix(&(arg_struct->str), ' ', len, 2);
 			else if (arg_struct->flags->has_starflag)
 				ft_addnfix(&(arg_struct->str), ' ', len, 1);
-			else
+			else if (arg_struct->type != is_unum)
 				ft_addnfix(&(arg_struct->str), ' ', len, 1);
 		}
 	}

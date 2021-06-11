@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 15:02:51 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/11 15:20:38 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,17 @@ void	set_unum(t_arg *arg_struct, va_list *args)
 
 	if (arg_struct->specifier == 'p')
 		unum = va_arg(*args, size_t);
-	arg_struct->data = &unum;
-	set_base(arg_struct);
-	arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
+	if (unum != 0)
+	{
+		arg_struct->data = &unum;
+		set_base(arg_struct);
+		arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
+	}
+	else
+	{
+		arg_struct->str = ft_strdup("(nil)");
+		arg_struct->type = is_string;
+	}
 }
 
 void	set_data(t_arg *arg_struct, va_list *args)
