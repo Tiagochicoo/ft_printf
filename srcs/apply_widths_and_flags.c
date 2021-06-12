@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   apply_widths_and_flags.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/11 18:07:09 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/12 16:05:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	manage_precision(t_arg *arg_struct)
 	int		len;
 	char	*str;
 
-	if (arg_struct->precision != -1)
+	if (arg_struct->precision > -1)
 	{
 		str = arg_struct->str;
 		len = arg_struct->precision - ft_strlen(str);

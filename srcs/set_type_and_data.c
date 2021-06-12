@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_type_and_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/11 17:40:16 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/12 14:55:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,9 @@ void	set_unum(t_arg *arg_struct, va_list *args)
 
 	if (arg_struct->specifier == 'p')
 		unum = va_arg(*args, size_t);
-	if (unum != 0)
-	{
-		arg_struct->data = &unum;
-		set_base(arg_struct);
-		arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
-	}
-	else
-	{
-		arg_struct->str = ft_strdup("(nil)");
-		arg_struct->type = is_string;
-	}
+	arg_struct->data = &unum;
+	set_base(arg_struct);
+	arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
 }
 
 void	set_snum(t_arg *arg_struct, va_list *args)

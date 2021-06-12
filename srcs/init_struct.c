@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:42:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 09:02:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/12 15:58:09 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	set_struct(char *input, t_arg *arg_struct, va_list *args)
 	input++;
 	set_flags(&input, arg_struct);
 	set_width(&input, arg_struct, args);
-	set_precision(&input, arg_struct);
+	set_precision(&input, arg_struct, args);
 	set_specifier(&input, arg_struct);
 	set_type(arg_struct);
 	set_data(arg_struct, args);

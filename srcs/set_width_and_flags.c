@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_width_and_flags.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/09 09:16:00 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/12 15:59:34 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	set_width(char **input, t_arg *arg_struct, va_list *args)
 	}
 }
 
-void	set_precision(char **input, t_arg *arg_struct)
+void	set_precision(char **input, t_arg *arg_struct, va_list *args)
 {
 	char		num_str[12];
 	int		i;
@@ -68,6 +68,11 @@ void	set_precision(char **input, t_arg *arg_struct)
 			}
 			num_str[i] = '\0';
 			arg_struct->precision = ft_atoi(num_str);		
+		}
+		else if (**input == '*')
+		{
+			arg_struct->precision = va_arg(*args, int);
+			(*input)++;
 		}
 		else
 			arg_struct->precision = 0;
