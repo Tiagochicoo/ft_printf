@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/12 14:55:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:07:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,14 @@ void	set_snum(t_arg *arg_struct, va_list *args)
 		snum = va_arg(*args, intmax_t);
 	arg_struct->data = &snum;
 	set_is_negative(arg_struct);
-	arg_struct->str = ft_itoabase_umax(snum, arg_struct->base);
+	if (snum < 0)
+	{
+		snum *= -1;
+		arg_struct->str = ft_itoa(snum);
+		arg_struct->is_negative = 0;
+	}
+	else
+		arg_struct->str = ft_itoabase_umax(snum, arg_struct->base);
 }
 
 void	set_data(t_arg *arg_struct, va_list *args)

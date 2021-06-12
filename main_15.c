@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:32:03 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/12 15:59:53 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:22:21 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main(void)
 	int len, len2;
 
 	write(1, "ft_printf:|", 11);
-	len = ft_printf(" %.*s ", -2, NULL);
+	len = ft_printf(" %-3.2d %10.42d ", 10, -10);
 	printf("|\nprintf:   |");
-	len2 = printf(" %.*s ", -2, NULL);
+	len2 = printf(" %-3.2d %10.42d ", 10, -10);
 	printf("|\n");
 	if (len != len2)
 	{
