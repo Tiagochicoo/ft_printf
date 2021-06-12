@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/11 15:20:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/11 17:40:16 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	set_type(t_arg *arg_struc)
 		arg_struc->type = is_string;
 	else if (s == 'p')
 		arg_struc->type = is_unum;
+	else if (s == 'd')
+		arg_struc->type = is_snum;
 	else
 		arg_struc->type = is_null;
 }
@@ -46,6 +48,27 @@ void	set_unum(t_arg *arg_struct, va_list *args)
 	}
 }
 
+void	set_snum(t_arg *arg_struct, va_list *args)
+{
+	intmax_t	snum;
+
+	if (!arg_struct->modifiers)
+		snum = va_arg(*args, int);
+	else if (ft_countletter(arg_struct->modifiers, 'l') == 2)
+		snum = va_arg(*args, long long);
+	else if (ft_countletter(arg_struct->modifiers, 'l') == 1)
+		snum = va_arg(*args, long);
+	else if (ft_countletter(arg_struct->modifiers, 'h') == 2)
+		snum = (char)va_arg(*args, int);
+	else if (ft_countletter(arg_struct->modifiers, 'h') == 1)
+		snum = (short)va_arg(*args, int);
+	else
+		snum = va_arg(*args, intmax_t);
+	arg_struct->data = &snum;
+	set_is_negative(arg_struct);
+	arg_struct->str = ft_itoabase_umax(snum, arg_struct->base);
+}
+
 void	set_data(t_arg *arg_struct, va_list *args)
 {
 	void	(*set_datatype[8])(t_arg *, va_list *);
@@ -53,5 +76,6 @@ void	set_data(t_arg *arg_struct, va_list *args)
 	set_datatype[is_char] = set_char;
 	set_datatype[is_string] = set_string;
 	set_datatype[is_unum] = set_unum;
+	set_datatype[is_snum] = set_snum;
 	set_datatype[arg_struct->type](arg_struct, args);
 }

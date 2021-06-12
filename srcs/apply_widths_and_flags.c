@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/11 15:20:53 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:07:09 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,15 @@ void	manage_precision(t_arg *arg_struct)
 		{
 			if (arg_struct->precision == 0 && str[0] == '0' && str[1] == '\0')
 				arg_struct->str[0] = '\0';
-			else if (len > 0)
+			else if (len > 0 && arg_struct->is_negative == 1 && arg_struct->str[0] != '0')
+			{
 				ft_addnfix(&(arg_struct->str), '0', len, 1);
+				ft_addnfix(&(arg_struct->str), '-', 1, 1);
+			}
+			else if (len > 0 && arg_struct->is_negative == 0)
+				ft_addnfix(&(arg_struct->str), '0', len, 1);
+			else
+				arg_struct->str = ft_strndup(arg_struct->str, arg_struct->precision);
 		}
 	}
 }
@@ -74,5 +81,6 @@ void	manage_width(t_arg *arg_struct)
 void	apply_widths_and_flags(t_arg *arg_struct)
 {
 	manage_precision(arg_struct);
+	manage_zero_width(arg_struct);
 	manage_width(arg_struct);
 }
