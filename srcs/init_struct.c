@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:42:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/12 15:58:09 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:18:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_flag	*new_flags(void)
 	flags->has_dotflag = 0;
 	flags->has_lflag = 0;
 	flags->has_hflag = 0;
-
 	return (flags);
 }
 
@@ -58,6 +57,7 @@ void	set_struct(char *input, t_arg *arg_struct, va_list *args)
 	set_specifier(&input, arg_struct);
 	set_type(arg_struct);
 	set_data(arg_struct, args);
+	clean_flags(arg_struct);
 }
 
 void	free_struct(t_arg *arg_struct)

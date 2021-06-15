@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/12 17:33:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:18:57 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	write_arg(t_arg arg_struct)
 		{
 			str_size += ft_putchar(' ');
 			arg_struct.fieldwidth++;
-		} 
+		}
 	}
 	else
 		str_size = ft_putstr(arg_struct.str);
@@ -117,5 +117,5 @@ int	ft_printf(const char *format, ...)
 	printed_chars = print_data(format_copy, &args);
 	free(format_copy);
 	va_end(args);
-		return (printed_chars);
+	return (printed_chars);
 }

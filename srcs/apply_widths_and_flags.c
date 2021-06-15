@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/12 17:28:02 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:16:07 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,20 @@ void	manage_precision(t_arg *arg_struct)
 		{
 			if (arg_struct->precision == 0 && str[0] == '0' && str[1] == '\0')
 				arg_struct->str[0] = '\0';
-			else if (len > 0 && arg_struct->is_negative == 1 && arg_struct->str[0] != '0')
+			else if (len > 0 && arg_struct->is_negative == 1
+				&& arg_struct->str[0] != '0')
 			{
 				ft_addnfix(&(arg_struct->str), '0', len, 1);
 				ft_addnfix(&(arg_struct->str), '-', 1, 1);
 			}
-			else if (len > 0 && arg_struct->is_negative == 0 && arg_struct->type == is_unum)
+			else if (len > 0 && arg_struct->is_negative == 0
+				&& arg_struct->type == is_unum)
 				ft_addnfix(&(arg_struct->str), '0', len, 1);
 			else if (len > 0 && arg_struct->is_negative == 1)
 				ft_addnfix(&(arg_struct->str), '0', len, 1);
+			else if (len > 0 && arg_struct->precision > len
+				&& arg_struct->flags->has_minusflag == 1)
+				ft_addnfix(&(arg_struct->str), '0', arg_struct->precision - (len - 1), 1);
 			else if (len > 0 && arg_struct->precision > len)
 				ft_addnfix(&(arg_struct->str), '0', arg_struct->precision - len, 1);
 			else

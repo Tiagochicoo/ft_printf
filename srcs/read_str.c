@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   read_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:44:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/11 16:12:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:17:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	get_len_to_spec(char *str, char c)
+int		get_len_to_spec(char *str, char c)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int	get_len_to_spec(char *str, char c)
 	return (i);
 }
 
-int	get_var_len(char *str)
+int		get_var_len(char *str)
 {
 	int i;
 

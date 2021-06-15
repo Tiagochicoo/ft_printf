@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   read_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:38:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 15:36:20 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/15 21:13:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_arg read_arg(char *input, va_list *args)
+t_arg	read_arg(char *input, va_list *args)
 {
 	t_arg	arg_struct;
 
