@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/12 17:49:10 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:19:36 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_flag	*new_flags(void);
 
 void	set_flags(char **str_block, t_arg *arg_struct);
 void	set_width(char **str_block, t_arg *arg_struct, va_list *args);
-void	set_precision(char **str_block, t_arg *arg_struct);
+void	set_precision(char **str_block, t_arg *arg_struct, va_list *args);
 void	set_modifiers(char **str_block, t_arg *arg_struct);
 void	set_specifier(char **str_block, t_arg *arg_struct);
 void	set_type(t_arg *arg_struct);
