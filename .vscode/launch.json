@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(lldb) Launch",
+            "name": "42MAC lldb",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/a.out",
@@ -16,6 +16,25 @@
             "externalConsole": false,
             "MIMode": "lldb",
             "miDebuggerPath": "/Users/tpereira/.vscode/extensions/ms-vscode.cpptools-1.4.1/debugAdapters/lldb-mi/bin/lldb-mi",
-        }
+        },
+		{
+            "name": "Linux GDB",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			],
+		}
     ]
 }
