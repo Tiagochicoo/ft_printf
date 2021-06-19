@@ -6,15 +6,15 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:44:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/15 21:17:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/19 12:40:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_len_to_spec(char *str, char c)
+int	get_len_to_spec(char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0' && str[i] != c)
@@ -22,9 +22,9 @@ int		get_len_to_spec(char *str, char c)
 	return (i);
 }
 
-int		get_var_len(char *str)
+int	get_var_len(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (!ft_strrchr("cspd", str[i]))

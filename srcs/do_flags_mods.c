@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   do_flags_mods.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 11:49:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/11 17:55:08 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/19 12:37:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_zero_field_len(t_arg *arg_struct)
+int	get_zero_field_len(t_arg *arg_struct)
 {
 	int	len;
 
