@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/19 12:42:59 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/19 16:03:04 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	manage_precision(t_arg *arg_struct)
 		len = arg_struct->precision - ft_strlen(str);
 		if (arg_struct->type == is_string && len <= 0)
 		{
-			if ((arg_struct->str == ft_strndup(str, arg_struct->precision)))
+			if ((arg_struct->str = ft_strndup(str, arg_struct->precision)))
 				free(str);
 		}
 		else if (arg_struct->type == is_unum || arg_struct->type == is_snum)
@@ -45,6 +45,12 @@ void	manage_precision(t_arg *arg_struct)
 				&& arg_struct->flags->has_minusflag == 1)
 				ft_addnfix(&(arg_struct->str), '0',
 					arg_struct->precision - (len - 1), 1);
+			else if (arg_struct->precision > len && arg_struct->is_negative)
+			{
+				ft_addnfix(&(arg_struct->str), '-', 1, 1);
+				ft_addnfix(&(arg_struct->str), '0',
+					arg_struct->precision - 1, 1);
+			}
 			else if (len > 0 && arg_struct->precision > len)
 				ft_addnfix(&(arg_struct->str), '0',
 					arg_struct->precision - len, 1);
