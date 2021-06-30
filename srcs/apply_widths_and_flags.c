@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 17:30:02 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/30 19:18:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,8 @@ void	manage_precision(t_arg *arg_struct)
 				ft_addnfix(&(arg_struct->str), '0', len, 1);
 			else if (len > 0 && arg_struct->is_negative == 1)
 				ft_addnfix(&(arg_struct->str), '0', len, 1);
-			else if (len > 0 && arg_struct->precision > len
-				&& arg_struct->flags->has_minusflag == 1)
-				ft_addnfix(&(arg_struct->str), '0',
-					arg_struct->precision - (len - 1), 1);
+			else if (len > 0 && arg_struct->precision > len && arg_struct->flags->has_minusflag == 1)
+				ft_addnfix(&(arg_struct->str), '0', arg_struct->precision - (len), 1);
 			else if (arg_struct->precision > len && arg_struct->is_negative)
 			{
 				ft_addnfix(&(arg_struct->str), '-', 1, 1);
@@ -52,8 +50,7 @@ void	manage_precision(t_arg *arg_struct)
 					arg_struct->precision - 1, 1);
 			}
 			else if (len > 0 && arg_struct->precision > len)
-				ft_addnfix(&(arg_struct->str), '0',
-					arg_struct->precision - len, 1);
+				ft_addnfix(&(arg_struct->str), '0', len, 1);
 			else
 				arg_struct->str = ft_memmove(arg_struct->str, arg_struct->str, arg_struct->precision);
 		}
