@@ -6,7 +6,7 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/05/31 11:16:10 by tpereira         ###   ########.fr        #
+#    Updated: 2021/06/30 08:53:44 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,6 @@ fclean:     clean
 re:         fclean all
 
 cc: 
-	$(CC) $(CFLAGS) -g -fsanitize=address main_15.c libftprintf.a && ./a.out
+	$(CC) $(CFLAGS) -g main_15.c libftprintf.a && ./a.out
 
 .PHONY: bonus re fclean clean all

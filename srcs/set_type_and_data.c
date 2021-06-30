@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/16 12:26:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/30 12:41:53 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	set_unum(t_arg *arg_struct, va_list *args)
 void	set_snum(t_arg *arg_struct, va_list *args)
 {
 	intmax_t	snum;
+	char		*str;
 
 	if (!arg_struct->modifiers)
 		snum = va_arg(*args, int);
@@ -61,11 +62,16 @@ void	set_snum(t_arg *arg_struct, va_list *args)
 	if (snum < 0)
 	{
 		snum *= -1;
-		arg_struct->str = ft_itoabase_umax(snum, arg_struct->base);
+		str = ft_itoabase_umax(snum, arg_struct->base);
+		arg_struct->str = str;
 		arg_struct->is_negative = 0;
+		free(str);
 	}
 	else
-		arg_struct->str = ft_itoabase_umax(snum, arg_struct->base);
+	{
+		str = ft_itoabase_umax(snum, arg_struct->base);
+		arg_struct->str = str;
+	}	
 }
 
 void	set_data(t_arg *arg_struct, va_list *args)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoabase_umax.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:01:46 by tpereira          #+#    #+#             */
-/*   Updated: 2021/04/22 22:40:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/30 13:43:55 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ char    *ft_itoabase_umax(size_t num, int base)
 
     basestr = ft_strdup("0123456789abcdef");
     len = get_unumlen(num, base);
-    if (!(str = (char *)malloc(sizeof(*str) * len + 1)))
+	str = (char *)malloc(sizeof(*str) * (len + 1));
+    if (!str)
+	{
+		free(basestr);
         return NULL;
+	}
     str[len] = '\0';
     str[--len] = basestr[num % base];
     while (num /= base)
