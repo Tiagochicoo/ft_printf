@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_type_and_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/06/30 12:41:53 by tpereira         ###   ########.fr       */
-=======
-/*   Updated: 2021/06/19 16:43:41 by tpereira         ###   ########.fr       */
->>>>>>> cad04723e131ea12c520e969def68b9014154ceb
+/*   Updated: 2021/06/30 13:54:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +58,7 @@ void	set_snum(t_arg *arg_struct, va_list *args)
 	else
 		snum = va_arg(*args, intmax_t);
 	arg_struct->data = &snum;
-	set_is_negative(arg_struct);
+	set_is_negative(arg_struct, snum);
 	if (snum < 0)
 	{
 		snum *= -1;
