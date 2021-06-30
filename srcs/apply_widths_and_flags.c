@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   apply_widths_and_flags.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:12:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/19 16:03:04 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/30 17:30:02 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ void	manage_precision(t_arg *arg_struct)
 				ft_addnfix(&(arg_struct->str), '0',
 					arg_struct->precision - len, 1);
 			else
-				arg_struct->str
-					= ft_strndup(arg_struct->str, arg_struct->precision);
+				arg_struct->str = ft_memmove(arg_struct->str, arg_struct->str, arg_struct->precision);
 		}
 	}
 }
