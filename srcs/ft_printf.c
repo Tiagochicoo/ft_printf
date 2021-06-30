@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/15 21:18:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/19 12:47:59 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	write_arg(t_arg arg_struct)
 	else
 		str_size = ft_putstr(arg_struct.str);
 	if (arg_struct.str && ft_strlen(arg_struct.str) == 1
-			&& arg_struct.fieldwidth < -1)
+		&& arg_struct.fieldwidth < -1)
 	{
 		while (arg_struct.fieldwidth < -1)
 		{

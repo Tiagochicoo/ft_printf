@@ -6,7 +6,11 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/06/29 20:44:48 by tpereira         ###   ########.fr       */
+=======
+/*   Updated: 2021/06/19 12:41:07 by tpereira         ###   ########.fr       */
+>>>>>>> cad04723e131ea12c520e969def68b9014154ceb
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +34,7 @@ void	set_width(char **input, t_arg *arg_struct, va_list *args)
 {
 	char	num_str[12];
 	int		i;
-	
+
 	if (arg_struct->flags->has_starflag)
 	{
 		i = va_arg(*args, int);

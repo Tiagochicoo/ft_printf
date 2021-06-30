@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/15 14:19:36 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/06/19 16:07:07 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	set_char(t_arg *arg_struct, va_list *args);
 void	set_wstring(t_arg *arg_struct, va_list *args);
 void	set_wchar(t_arg *arg_struct, va_list *args);
 void	set_string(t_arg *arg_struct, va_list *args);
-void	set_is_negative(t_arg *arg_struct);
+void	set_is_negative(t_arg *arg_struct, int snum);
 void	set_base(t_arg *arg_struct);
 void	clean_flags(t_arg *arg_struct);
 
