@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 19:25:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/03 15:28:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int	write_arg(t_arg arg_struct)
 	}
 	else
 		str_size = ft_putstr(arg_struct.str);
+	if (str_size < arg_struct.fieldwidth)
+	{
+		write(1, "\0", 1);
+		str_size++;
+	}
 	if (arg_struct.str && ft_strlen(arg_struct.str) == 1
 		&& arg_struct.fieldwidth < -1)
 	{

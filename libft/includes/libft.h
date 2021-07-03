@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 23:02:16 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 13:50:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/03 14:54:58 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ char    		*ft_chrtostr(char c);
 size_t			ft_wstrlen(const wchar_t *s);
 wchar_t			*ft_wstrdup(const wchar_t *wstr);
 wchar_t			*ft_wchrtostr(wchar_t wchar);
+char			*ft_swap(char *str, size_t i);
 
 #endif
