@@ -3,14 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 19:25:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/03 17:49:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	write_args(t_arg arg_struct)
+{
+	int	str_size;
+
+	str_size = 0;
+	if (arg_struct.specifier == 'c')
+		str_size = print_c(&(arg_struct));
+	// if (arg_struct.specifier == 's')
+	// 	print_s(arg_struct);
+	// if (arg_struct.specifier == 'p')
+	// 	print_p(arg_struct);
+	// if (arg_struct.specifier == 'd' || arg_struct.specifier == 'i')
+	// 	print_di(arg_struct);
+	// if (arg_struct.specifier == 'u')
+	// 	print_u(arg_struct);
+	// if (arg_struct.specifier == 'x')
+	// 	print_x(arg_struct);
+	// if (arg_struct.specifier == 'X')
+	// 	print_xx(arg_struct);
+	// if (arg_struct.specifier == '%')
+	// 	print_(arg_struct);
+
+	return (str_size);
+}
 
 int	write_arg(t_arg arg_struct)
 {
@@ -93,7 +118,7 @@ int	print_data(char *format_copy, va_list *args)
 		if (input[0] == '%')
 		{
 			arg_struct = read_arg(input, args);
-			printed_chars += write_arg(arg_struct);
+			printed_chars += write_args(arg_struct);
 			free_struct(&arg_struct);
 		}
 		else

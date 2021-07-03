@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/19 16:07:07 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/03 17:07:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	manage_zero_width(t_arg *arg_struct);
 void	manage_hash(t_arg *arg_struct);
 void	manage_sign(t_arg *arg_struct);
 void	apply_widths_and_flags(t_arg *arg_struct);
+
+int		print_c(t_arg *arg_struct);
 
 # define FLAGS "-0*#+lh"
 # define DIGITS "0123456789"

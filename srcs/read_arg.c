@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:38:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/15 21:13:37 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/03 17:05:50 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ t_arg	read_arg(char *input, va_list *args)
 
 	init_struct(&arg_struct);
 	set_struct(input, &arg_struct, args);
-	apply_widths_and_flags(&arg_struct);
+	//apply_widths_and_flags(&arg_struct);
 	return (arg_struct);
 }
