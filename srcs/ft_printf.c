@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 12:12:59 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 14:03:43 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ int	write_args(t_arg *arg_struct)
 	str_size = 0;
 	if (arg_struct->specifier == 'c')
 		str_size = print_c(arg_struct);
-	// if (arg_struct.specifier == 's')
-	// 	print_s(arg_struct);
+	if (arg_struct->specifier == 's')
+	 	str_size = print_s(arg_struct);
 	// if (arg_struct.specifier == 'p')
-	// 	print_p(arg_struct);
+	// str_size = print_p(arg_struct);
 	// if (arg_struct.specifier == 'd' || arg_struct.specifier == 'i')
-	// 	print_di(arg_struct);
+	// str_size = print_di(arg_struct);
 	// if (arg_struct.specifier == 'u')
-	// 	print_u(arg_struct);
+	// str_size = print_u(arg_struct);
 	// if (arg_struct.specifier == 'x')
-	// 	print_x(arg_struct);
+	// str_size = print_x(arg_struct);
 	// if (arg_struct.specifier == 'X')
-	// 	print_xx(arg_struct);
+	// str_size = print_xx(arg_struct);
 	// if (arg_struct.specifier == '%')
-	// 	print_(arg_struct);
+	// str_size = print_(arg_struct);
 	
 	return (str_size);
 }

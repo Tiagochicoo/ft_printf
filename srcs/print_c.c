@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:05:00 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 12:35:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 14:01:41 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 void    manage_c_precision(t_arg *arg_struct)
 {
-    int		len;
-	char	*str;
-    
     if (arg_struct->precision > -1)
-    {
-        str = arg_struct->str;
-		len = arg_struct->precision - ft_strlen(str);
-        
         ft_memmove(arg_struct->str, arg_struct->str, arg_struct->precision);
-    }
 }
 
 int    manage_c_width(t_arg *arg_struct)

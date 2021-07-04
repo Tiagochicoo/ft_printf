@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/03 17:07:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 15:25:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	manage_sign(t_arg *arg_struct);
 void	apply_widths_and_flags(t_arg *arg_struct);
 
 int		print_c(t_arg *arg_struct);
+int		print_s(t_arg *arg_struct);
 
 # define FLAGS "-0*#+lh"
 # define DIGITS "0123456789"
