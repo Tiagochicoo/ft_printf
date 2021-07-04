@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:05:00 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 12:33:53 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 12:35:11 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int    manage_c_width(t_arg *arg_struct)
 			{
 				ft_addnfix(&(arg_struct->str), ' ', 1, 2);
 				arg_struct->fieldwidth++;
-			}			
+			}
 		}
     }
     return (str_size);
