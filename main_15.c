@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:32:03 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 19:02:05 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 22:35:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <stdlib.h>
 #include "./includes/ft_printf.h"
 #include "colors.h"
-#define UINT_MAX   4294967295U
+#define INT_MIN -2147483648
+#define INT_MAX 2147483647
 
 // %[flags][width][.precision][length]specifier
 int main(void)
@@ -22,9 +23,9 @@ int main(void)
 	int len, len2;
 
 	write(1, "ft_printf:|", 11);
-	len = ft_printf("%0*d", -7, -54);
+	len = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, INT_MAX, 21, INT_MIN);
 	printf("|\nprintf:   |");
-	len2 = printf("%0*d", -7, -54);
+	len2 = printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, INT_MAX, 21, INT_MIN);
 	printf("|\n");
 	if (len != len2)
 	{
