@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:42:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 12:11:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:34:21 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,10 @@ t_flag	*new_flags(void)
 		return (NULL);
 	flags->has_minusflag = 0;
 	flags->has_zeroflag = 0;
-	flags->has_pointflag = 0;
 	flags->has_starflag = 0;
 	flags->has_hashflag = 0;
-	flags->has_plusflag = 0;
 	flags->has_spaceflag = 0;
-	flags->has_dotflag = 0;
-	flags->has_lflag = 0;
-	flags->has_hflag = 0;
+	flags->has_plusflag = 0;
 	return (flags);
 }
 
@@ -38,14 +34,12 @@ void	init_struct(t_arg *arg)
 	arg->flags = new_flags();
 	arg->fieldwidth = -1;
 	arg->precision = -1;
-	arg->modifiers = NULL;
 	arg->specifier = 0;
 	arg->is_invalid = 0;
 	arg->is_negative = 0;
 	arg->base = 10;
 	arg->data = NULL;
 	arg->str = NULL;
-	arg->wstr = NULL;
 }
 
 void	set_struct(char *input, t_arg *arg_struct, va_list *args)
@@ -64,11 +58,6 @@ void	free_struct(t_arg *arg_struct)
 {
 	free(arg_struct->flags);
 	arg_struct->flags = NULL;
-	if (arg_struct->modifiers)
-	{
-		free(arg_struct->modifiers);
-		arg_struct->modifiers = NULL;
-	}
 	if (arg_struct->str)
 	{
 		free(arg_struct->str);

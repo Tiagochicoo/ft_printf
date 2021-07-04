@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 15:25:48 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:46:14 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ typedef enum e_type {
 	is_unum,
 	is_char,
 	is_string,
-	is_pointer,
-	is_wchar,
-	is_wstring,
 	is_escape,
 	num_types
 }	t_type;
@@ -36,14 +33,10 @@ typedef enum e_type {
 typedef struct s_flag {
 	int	has_minusflag;
 	int	has_zeroflag;
-	int	has_pointflag;
 	int	has_starflag;
 	int	has_hashflag;
-	int	has_plusflag;
 	int	has_spaceflag;
-	int	has_dotflag;
-	int	has_lflag;
-	int	has_hflag;
+	int	has_plusflag;
 }	t_flag;
 
 typedef struct s_arg {
@@ -51,14 +44,12 @@ typedef struct s_arg {
 	t_flag	*flags;
 	int		fieldwidth;
 	int		precision;
-	char	*modifiers;
 	int		specifier;
 	int		is_invalid;
 	int		is_negative;
 	int		base;
 	void	*data;
 	char	*str;
-	wchar_t	*wstr;
 }	t_arg;
 
 char	*read_str(char **str);
@@ -91,6 +82,8 @@ void	apply_widths_and_flags(t_arg *arg_struct);
 
 int		print_c(t_arg *arg_struct);
 int		print_s(t_arg *arg_struct);
+int		print_p(t_arg *arg_struct);
+int		print_di(t_arg *arg_struct);
 
 # define FLAGS "-0*#+lh"
 # define DIGITS "0123456789"

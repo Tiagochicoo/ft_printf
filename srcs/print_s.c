@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 15:24:38 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 15:34:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 16:44:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,16 @@ int	print_s(t_arg *arg_struct)
 	str_size = 0;
 	manage_s_precision(arg_struct);
     str_size += manage_s_width(arg_struct);
-	if (arg_struct->fieldwidth != -1)
+	if (arg_struct->fieldwidth < -1)
 	{
-		if (arg_struct->fieldwidth < -1)
+		str_size = ft_putstr(arg_struct->str);
+		while (arg_struct->fieldwidth < (int)(ft_strlen(arg_struct->str) * -1))
 		{
-			str_size = ft_putstr(arg_struct->str);
-			while (arg_struct->fieldwidth < (int)(ft_strlen(arg_struct->str) * -1))
-			{
-				str_size += ft_putchar(' ');
-				arg_struct->fieldwidth++;
-			}
+			str_size += ft_putchar(' ');
+			arg_struct->fieldwidth++;
 		}
-		else
-			str_size = ft_putstr(arg_struct->str);
 	}
-	return (str_size);
+	else
+		str_size = ft_putstr(arg_struct->str);
+return (str_size);
 }

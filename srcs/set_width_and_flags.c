@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 13:54:04 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/04 18:51:03 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void	set_flags(char **input, t_arg *arg_struct)
 			arg_struct->flags->has_zeroflag = 1;
 		if (**input == '*')
 			arg_struct->flags->has_starflag = 1;
+		if (**input == '#')
+			arg_struct->flags->has_hashflag = 1;
+		if (**input == ' ')
+			arg_struct->flags->has_spaceflag = 1;
+		if (**input == '+')
+			arg_struct->flags->has_plusflag = 1;
 		(*input)++;
 	}
 }
@@ -90,4 +96,8 @@ void	clean_flags(t_arg *arg_struct)
 		arg_struct->flags->has_zeroflag = 0;
 	if (arg_struct->flags->has_zeroflag && arg_struct->precision != -1)
 		arg_struct->flags->has_zeroflag = 0;
+	if (arg_struct->flags->has_zeroflag && arg_struct->precision != -1)
+		arg_struct->flags->has_zeroflag = 0;
+	if (arg_struct->specifier == 'p')
+		arg_struct->flags->has_hashflag = 1;
 }

@@ -6,13 +6,14 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/04 14:01:02 by tpereira         ###   ########.fr        #
+#    Updated: 2021/07/04 18:59:23 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libftprintf.a
 CC 			= gcc
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra 
+#-Werror
 SRCS 		= $(wildcard ./srcs/*.c)
 LIB_SRCS	= mv $(LIB_NAME)/libft.a ./$(NAME)
 OBJS 		= $(SRCS:.c=.o)
@@ -40,6 +41,6 @@ fclean:     clean
 re:         fclean all
 
 cc: 
-	$(CC) $(CFLAGS) -g -fsanitize=address main_15.c libftprintf.a && ./a.out
+	$(CC) $(CFLAGS) -g main_15.c libftprintf.a && ./a.out
 
 .PHONY: bonus re fclean clean all
