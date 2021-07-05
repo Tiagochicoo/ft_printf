@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 23:02:16 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 13:50:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 13:09:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,7 @@ char    		*ft_chrtostr(char c);
 size_t			ft_wstrlen(const wchar_t *s);
 wchar_t			*ft_wstrdup(const wchar_t *wstr);
 wchar_t			*ft_wchrtostr(wchar_t wchar);
+char			*ft_itoabase(long num, int base);
+char			*ft_strrev(char *str);
 
 #endif

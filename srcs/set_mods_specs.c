@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_mods_specs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:23:37 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/19 12:40:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:20:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_specifier(char **input, t_arg *arg_struct)
 	char	specifier;
 
 	specifier = **input;
-	if (!(ft_isalpha(specifier) || specifier == '%'))
+	if (!(ft_isalpha(specifier)) && specifier != '%')
 		return ;
 	(*input)++;
 	arg_struct->specifier = (char)specifier;

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 16:16:51 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/10 22:26:53 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:12:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*ft_strsub(char const *s, size_t start, size_t len)
 {
 	size_t	i;
+	size_t	ii;
 	char	*sub;
 
 	if (s == 0)
@@ -25,7 +26,8 @@ char	*ft_strsub(char const *s, size_t start, size_t len)
 	if (sub == NULL)
 		return (NULL);
 	i = 0;
-	while (i < len && (i + start <= ft_strlen(s)))
+	ii = i + start <= ft_strlen(s);
+	while (i < len && ii)
 	{
 		sub[i] = s[start + i];
 		i++;

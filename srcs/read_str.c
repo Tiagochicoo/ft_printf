@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:44:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/19 12:40:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 16:55:35 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ int	get_var_len(char *str)
 	int	i;
 
 	i = 0;
-	while (!ft_strrchr("cspd", str[i]))
+	while (!ft_strrchr(CONVERSIONS, str[i]) && str[i + 1] != '%')
 		i++;
+	if (str[i] == '%' && str[i+1] == '%')
+		i += 1;
 	return (i + 1);
 }
 

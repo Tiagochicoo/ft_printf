@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:22:10 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 17:40:07 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:07:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,13 @@ int	write_args(t_arg *arg_struct)
 	if (arg_struct->specifier == 'p')
 		str_size = print_p(arg_struct);
 	if (arg_struct->specifier == 'd' || arg_struct->specifier == 'i')
-	str_size = print_di(arg_struct);
-	// if (arg_struct.specifier == 'u')
-	// str_size = print_u(arg_struct);
-	// if (arg_struct.specifier == 'x')
-	// str_size = print_x(arg_struct);
-	// if (arg_struct.specifier == 'X')
-	// str_size = print_xx(arg_struct);
-	// if (arg_struct.specifier == '%')
-	// str_size = print_(arg_struct);
+		str_size = print_di(arg_struct);
+	if (arg_struct->specifier == 'u')
+		str_size = print_u(arg_struct);
+	if (arg_struct->specifier == 'x' || arg_struct->specifier == 'X')
+		str_size = print_x(arg_struct);
+	if (arg_struct->specifier == '%')
+		str_size = print_escape(arg_struct);
 	
 	return (str_size);
 }

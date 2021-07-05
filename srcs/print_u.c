@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_di.c                                         :+:      :+:    :+:   */
+/*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 17:40:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 08:33:42 by tpereira         ###   ########.fr       */
+/*   Created: 2021/07/05 08:28:27 by tpereira          #+#    #+#             */
+/*   Updated: 2021/07/05 08:56:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	manage_di_precision(t_arg *arg_struct)
+void	manage_u_precision(t_arg *arg_struct)
 {
 	int		len;
 	char	*str;
@@ -38,7 +38,7 @@ void	manage_di_precision(t_arg *arg_struct)
 	}
 }
 
-int		get_zero_field_len(t_arg *arg_struct)
+int		get_u_zero_field_len(t_arg *arg_struct)
 {
 	int len;
 
@@ -53,13 +53,13 @@ int		get_zero_field_len(t_arg *arg_struct)
 	return (len);
 }
 
-void	manage_zeros_width(t_arg *arg_struct)
+void	manage_u_zeros_width(t_arg *arg_struct)
 {
 	int	len;
 
 	if (arg_struct->fieldwidth != -1 && arg_struct->flags->has_zeroflag)
 	{
-		len = get_zero_field_len(arg_struct);
+		len = get_u_zero_field_len(arg_struct);
 		if (len > 0)
 			ft_addnfix(&(arg_struct->str), '0', len, 1);
 		if (arg_struct->is_negative)
@@ -67,7 +67,7 @@ void	manage_zeros_width(t_arg *arg_struct)
 	}
 }
 
-int	manage_di_width(t_arg *arg_struct)
+int	manage_u_width(t_arg *arg_struct)
 {
 	int		len;
     int     str_size;
@@ -92,16 +92,16 @@ int	manage_di_width(t_arg *arg_struct)
     return (str_size);
 }
 
-int	print_di(t_arg *arg_struct)
+int	print_u(t_arg *arg_struct)
 {
 	int	len;
 	int	str_size;
 
 	len = 0;
 	str_size = 0;
-	manage_di_precision(arg_struct);
-	manage_zeros_width(arg_struct);
-	str_size += manage_di_width(arg_struct);
+	manage_u_precision(arg_struct);
+	manage_u_zeros_width(arg_struct);
+	str_size += manage_u_width(arg_struct);
 	ft_putstr(arg_struct->str);
 	if (arg_struct->fieldwidth < 0)
 	{

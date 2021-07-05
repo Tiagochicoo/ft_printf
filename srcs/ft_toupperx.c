@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_arg.c                                         :+:      :+:    :+:   */
+/*   ft_toupperx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 22:38:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 12:37:50 by tpereira         ###   ########.fr       */
+/*   Created: 2021/07/05 14:55:51 by tpereira          #+#    #+#             */
+/*   Updated: 2021/07/05 14:58:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_arg	read_arg(char *input, va_list *args)
+void	ft_toupperx(char *str)
 {
-	t_arg	arg_struct;
+	int	i;
 
-	init_struct(&arg_struct);
-	set_struct(input, &arg_struct, args);
-	//apply_widths_and_flags(&arg_struct);
-	return (arg_struct);
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_toupper(str[i]);
+		i++;
+	}
 }

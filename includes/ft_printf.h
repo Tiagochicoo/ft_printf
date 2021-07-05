@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 18:46:14 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 16:35:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	set_char(t_arg *arg_struct, va_list *args);
 void	set_wstring(t_arg *arg_struct, va_list *args);
 void	set_wchar(t_arg *arg_struct, va_list *args);
 void	set_string(t_arg *arg_struct, va_list *args);
-void	set_is_negative(t_arg *arg_struct, int snum);
+void	set_is_negative(t_arg *arg_struct);
 void	set_base(t_arg *arg_struct);
 void	clean_flags(t_arg *arg_struct);
 
@@ -84,11 +84,15 @@ int		print_c(t_arg *arg_struct);
 int		print_s(t_arg *arg_struct);
 int		print_p(t_arg *arg_struct);
 int		print_di(t_arg *arg_struct);
+int		print_u(t_arg *arg_struct);
+int		print_x(t_arg *arg_struct);
+int		print_escape(t_arg *arg_struct);
+void	ft_toupperx(char *str);
 
-# define FLAGS "-0*#+lh"
+# define FLAGS "-0*"
 # define DIGITS "0123456789"
 # define PRECISION_SEP "."
 # define MODIFIERS "hljz"
-# define CONVERSIONS "cspdiuxX%nfge"
+# define CONVERSIONS "cspdiuxXnfge"
 
 #endif

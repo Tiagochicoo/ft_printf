@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_arg.c                                         :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 22:38:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 12:37:50 by tpereira         ###   ########.fr       */
+/*   Created: 2021/01/15 10:51:36 by tpereira          #+#    #+#             */
+/*   Updated: 2021/07/05 14:39:45 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_arg	read_arg(char *input, va_list *args)
+char	*ft_strrev(char *str)
 {
-	t_arg	arg_struct;
+	int		i;
+	int		length;
+	char	buff;
 
-	init_struct(&arg_struct);
-	set_struct(input, &arg_struct, args);
-	//apply_widths_and_flags(&arg_struct);
-	return (arg_struct);
+	i = 0;
+	length = ft_strlen(str);
+	while (length - 1 > i)
+	{
+		buff = str[i];
+		str[i] = str[length - 1];
+		str[length - 1] = buff;
+		length--;
+		i++;
+	}
+	return (str);
 }

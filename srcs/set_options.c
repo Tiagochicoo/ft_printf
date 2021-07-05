@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_options.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 09:33:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/19 16:07:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:56:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	set_base(t_arg *arg_struct)
 	char	s;
 
 	s = arg_struct->specifier;
-	if (s == 'p')
+	if (s == 'p' || s == 'x' || s == 'X')
 		arg_struct->base = 16;
 }
 
-void	set_is_negative(t_arg *arg_struct, int snum)
+void	set_is_negative(t_arg *arg_struct)
 {
 	char	s;
 
 	s = arg_struct->specifier;
-	if ((s == 'd' || s == 'i') && (snum < 0))
+	if ((s == 'd' || s == 'i') && *(intmax_t *)arg_struct->data < 0)
 	{
 		arg_struct->is_negative = 1;
 		*(intmax_t *)(arg_struct->data) *= -1;

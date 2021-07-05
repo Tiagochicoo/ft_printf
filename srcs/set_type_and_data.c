@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 18:46:43 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 16:15:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,18 @@ void	set_unum(t_arg *arg_struct, va_list *args)
 
 	if (arg_struct->specifier == 'p')
 		unum = va_arg(*args, size_t);
+	else if (arg_struct->specifier == 'u' && arg_struct->flags->has_minusflag)
+		unum = va_arg(*args, size_t);
+	else
+		unum = va_arg(*args, unsigned int);
 	arg_struct->data = &unum;
 	set_base(arg_struct);
-	arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
+	if (unum == 0)
+		arg_struct->str = ft_strdup("0");
+	else if (arg_struct->specifier == 'x' || arg_struct->specifier == 'X')
+		arg_struct->str = ft_itoabase(unum, arg_struct->base);
+	else
+		arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
 }
 
 void	set_snum(t_arg *arg_struct, va_list *args)
@@ -53,18 +62,27 @@ void	set_snum(t_arg *arg_struct, va_list *args)
 
 	snum = va_arg(*args, int);
 	arg_struct->data = &snum;
-	set_is_negative(arg_struct, snum);
+	set_base(arg_struct);
+	set_is_negative(arg_struct);
 	if (snum < 0)
 	{
-		snum *= -1;
 		str = ft_itoabase_umax(snum, arg_struct->base);
+		if (arg_struct->specifier == 'x' || arg_struct->specifier == 'X')
+		{
+			ft_strrev(str);
+			str[8] = '\0';
+			ft_strrev(str);
+			if (arg_struct->specifier == 'X')
+				ft_toupperx(str);
+		}
 		arg_struct->str = str;
 		arg_struct->is_negative = 0;
-		free(str);
 	}
 	else
 	{
 		str = ft_itoabase_umax(snum, arg_struct->base);
+		if (arg_struct->specifier == 'X')
+			ft_toupperx(str);
 		arg_struct->str = str;
 	}
 }
@@ -82,7 +100,7 @@ void	set_escape(t_arg *arg_struct, va_list *args)
 
 void	set_data(t_arg *arg_struct, va_list *args)
 {
-	void	(*set_datatype[8])(t_arg *, va_list *);
+	void	(*set_datatype[12])(t_arg *, va_list *);
 
 	set_datatype[is_char] = set_char;
 	set_datatype[is_string] = set_string;
