@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 16:35:49 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 19:41:15 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	clean_flags(t_arg *arg_struct);
 void	manage_zero_width(t_arg *arg_struct);
 void	manage_hash(t_arg *arg_struct);
 void	manage_sign(t_arg *arg_struct);
-void	apply_widths_and_flags(t_arg *arg_struct);
 
 int		print_c(t_arg *arg_struct);
 int		print_s(t_arg *arg_struct);

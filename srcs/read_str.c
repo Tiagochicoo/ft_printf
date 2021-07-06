@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 21:44:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 16:55:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 17:59:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_var_len(char *str)
 	i = 0;
 	while (!ft_strrchr(CONVERSIONS, str[i]) && str[i + 1] != '%')
 		i++;
-	if (str[i] == '%' && str[i+1] == '%')
+	if (str[i] == '%' && str[i + 1] == '%')
 		i += 1;
 	return (i + 1);
 }

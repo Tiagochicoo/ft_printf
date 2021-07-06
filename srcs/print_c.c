@@ -6,22 +6,22 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:05:00 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 14:01:41 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 17:27:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    manage_c_precision(t_arg *arg_struct)
+void	manage_c_precision(t_arg *arg_struct)
 {
-    if (arg_struct->precision > -1)
-        ft_memmove(arg_struct->str, arg_struct->str, arg_struct->precision);
+	if (arg_struct->precision > -1)
+		ft_memmove(arg_struct->str, arg_struct->str, arg_struct->precision);
 }
 
-int    manage_c_width(t_arg *arg_struct)
+int	manage_c_width(t_arg *arg_struct)
 {
-    int		len;
-    int     str_size;
+	int	len;
+	int	str_size;
 
 	len = 0;
 	str_size = 0;
@@ -31,58 +31,43 @@ int    manage_c_width(t_arg *arg_struct)
 			len = arg_struct->fieldwidth - ft_strlen(arg_struct->str);
 		if (len > 0)
 		{
-            if (arg_struct->flags->has_minusflag)
+			if (arg_struct->flags->has_minusflag)
 				ft_addnfix(&(arg_struct->str), ' ', len, 2);
 			else
 			{
-				while (arg_struct->fieldwidth > 1)
-                {
-                    str_size += ft_putchar(' ');
-                    arg_struct->fieldwidth--;
-                }
-			}
-        }
-		else if (len < 0)
-		{
-			while (arg_struct->fieldwidth < -1)
-			{
-				ft_addnfix(&(arg_struct->str), ' ', 1, 2);
-				arg_struct->fieldwidth++;
+				while (arg_struct->fieldwidth-- > 1)
+					str_size += ft_putchar(' ');
 			}
 		}
-    }
-    return (str_size);
+		else if (len < 0)
+			while (arg_struct->fieldwidth++ < -1)
+				ft_addnfix(&(arg_struct->str), ' ', 1, 2);
+	}
+	return (str_size);
 }
 
-int		print_c(t_arg *arg_struct)
+int	print_c(t_arg *arg_struct)
 {
-    int str_size;
+	int	str_size;
 
-    str_size = 0;
-    manage_c_precision(arg_struct);
-    str_size += manage_c_width(arg_struct);
-
-    if (arg_struct->str == NULL)
-    {
-        str_size = ft_putchar(0);
+	str_size = 0;
+	manage_c_precision(arg_struct);
+	str_size += manage_c_width(arg_struct);
+	if (arg_struct->str == NULL)
+	{
+		str_size = ft_putchar(0);
 		if (arg_struct->fieldwidth < -1)
 		{
-			while (arg_struct->fieldwidth < -1)
-			{
+			while (arg_struct->fieldwidth++ < -1)
 				str_size += ft_putchar(' ');
-				arg_struct->fieldwidth++;
-			}
 		}
 		else
 		{
-			while (arg_struct->fieldwidth > 1)
-			{
+			while (arg_struct->fieldwidth-- > 1)
 				str_size += ft_putchar(' ');
-				arg_struct->fieldwidth--;
-			}
 		}
-    }
-    else
-        str_size += ft_putstr(arg_struct->str);
-    return (str_size);
+	}
+	else
+		str_size += ft_putstr(arg_struct->str);
+	return (str_size);
 }

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 16:15:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:01:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,12 @@ void	set_snum(t_arg *arg_struct, va_list *args)
 				ft_toupperx(str);
 		}
 		arg_struct->str = str;
-		arg_struct->is_negative = 0;
+		return ;
 	}
-	else
-	{
-		str = ft_itoabase_umax(snum, arg_struct->base);
-		if (arg_struct->specifier == 'X')
-			ft_toupperx(str);
-		arg_struct->str = str;
-	}
+	str = ft_itoabase_umax(snum, arg_struct->base);
+	if (arg_struct->specifier == 'X')
+		ft_toupperx(str);
+	arg_struct->str = str;
 }
 
 void	set_escape(t_arg *arg_struct, va_list *args)

@@ -6,33 +6,34 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 15:24:38 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 16:44:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 17:56:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    manage_s_precision(t_arg *arg_struct)
+void	manage_s_precision(t_arg *arg_struct)
 {
 	int		len;
 	char	*str;
-	
-    if (arg_struct->precision > -1)
+
+	if (arg_struct->precision > -1)
 	{
 		str = arg_struct->str;
 		len = arg_struct->precision - ft_strlen(str);
 		if (len <= 0)
 		{
-			if ((arg_struct->str = ft_strndup(str, arg_struct->precision)))
+			arg_struct->str = ft_strndup(str, arg_struct->precision);
+			if (str)
 				free(str);
 		}
 	}
 }
 
-int    manage_s_width(t_arg *arg_struct)
+int	manage_s_width(t_arg *arg_struct)
 {
-    int		len;
-    int     str_size;
+	int	len;
+	int	str_size;
 
 	len = 0;
 	str_size = 0;
@@ -51,7 +52,7 @@ int    manage_s_width(t_arg *arg_struct)
 		}
 	}
 	str_size = ft_strlen(arg_struct->str);
-    return (str_size);
+	return (str_size);
 }
 
 int	print_s(t_arg *arg_struct)
@@ -60,7 +61,7 @@ int	print_s(t_arg *arg_struct)
 
 	str_size = 0;
 	manage_s_precision(arg_struct);
-    str_size += manage_s_width(arg_struct);
+	str_size += manage_s_width(arg_struct);
 	if (arg_struct->fieldwidth < -1)
 	{
 		str_size = ft_putstr(arg_struct->str);
@@ -72,5 +73,5 @@ int	print_s(t_arg *arg_struct)
 	}
 	else
 		str_size = ft_putstr(arg_struct->str);
-return (str_size);
+	return (str_size);
 }

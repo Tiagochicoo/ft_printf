@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 12:19:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/02/28 17:34:05 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:29:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*ftl_swap(char *str, size_t i)
 
 static int	count_int(int n)
 {
-	int count;
+	int	count;
 
 	if (n == 0)
 		return (1);
@@ -47,7 +47,7 @@ static int	count_int(int n)
 
 static char	*ftl_malloc(long j, int n)
 {
-	char *str;
+	char	*str;
 
 	if (n < 0)
 		str = malloc(count_int(j) + 2);
@@ -56,7 +56,7 @@ static char	*ftl_malloc(long j, int n)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	i;
@@ -64,7 +64,8 @@ char		*ft_itoa(int n)
 
 	i = 0;
 	j = n;
-	if (!(str = ftl_malloc(j, n)))
+	str = ftl_malloc(j, n);
+	if (!str)
 		return (NULL);
 	if (n < 0)
 		j *= -1;

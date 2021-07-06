@@ -6,20 +6,22 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:01:46 by tpereira          #+#    #+#             */
-/*   Updated: 2021/06/30 13:43:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:43:20 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int  get_unumlen(size_t num, int base)
+static int	get_unumlen(size_t num, int base)
 {
-    int i;
+	int	i;
 
-    i = 1;
-    while (num /= base)
-        i++;
-    return (i);
+	i = 1;
+	while (num /= base)
+	{
+		i++;
+	}
+	return (i);
 }
 
 /*
@@ -27,24 +29,24 @@ static int  get_unumlen(size_t num, int base)
 ** converts it into a string, printed in the specified base
 */
 
-char    *ft_itoabase_umax(size_t num, int base)
+char	*ft_itoabase_umax(size_t num, int base)
 {
-    char    *str;
-    int     len;
-    char    *basestr;
+	char	*str;
+	int		len;
+	char	*basestr;
 
-    basestr = ft_strdup("0123456789abcdef");
-    len = get_unumlen(num, base);
+	basestr = ft_strdup("0123456789abcdef");
+	len = get_unumlen(num, base);
 	str = (char *)malloc(sizeof(*str) * (len + 1));
-    if (!str)
+	if (!str)
 	{
 		free(basestr);
-        return NULL;
+		return (NULL);
 	}
-    str[len] = '\0';
-    str[--len] = basestr[num % base];
-    while (num /= base)
-        str[--len] = basestr[num % base];
-    free(basestr);
-    return (str);
+	str[len] = '\0';
+	str[--len] = basestr[num % base];
+	while (num /= base)
+		str[--len] = basestr[num % base];
+	free(basestr);
+	return (str);
 }

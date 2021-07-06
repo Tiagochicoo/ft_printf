@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 08:59:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/03/06 11:48:04 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:14:45 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static long long	word_count(char *str, char charset)
 {
-	long long count;
+	long long	count;
 
 	count = 0;
 	while (*str)
@@ -31,22 +31,22 @@ static long long	word_count(char *str, char charset)
 	return (count);
 }
 
-static void			ftl_strcpy(char *dest, char *from, char *to)
+static void	ftl_strcpy(char *dest, char *from, char *to)
 {
 	while (from < to)
 		*(dest++) = *(from++);
 	*dest = 0;
 }
 
-char				**ft_split(char const *str, char charset)
+char	**ft_split(char const *str, char charset)
 {
 	char		**str_arr;
 	long long	i;
 	char		*from;
 
-	if (!str ||
-			!(str_arr = (char **)malloc(sizeof(char*) * word_count((char *)str,
-			charset) + 1)))
+	str_arr = (char **)malloc(sizeof(char *)
+			* word_count((char *)str, charset) + 1);
+	if (!str || !(str_arr))
 		return (NULL);
 	i = 0;
 	while (*str)

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:35:05 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 14:43:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 17:58:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	manage_x_precision(t_arg *arg_struct)
 	}
 }
 
-int		get_x_zero_field_len(t_arg *arg_struct)
+int	get_x_zero_field_len(t_arg *arg_struct)
 {
-	int len;
+	int	len;
 
 	len = arg_struct->fieldwidth - ft_strlen(arg_struct->str);
 	if (arg_struct->flags->has_spaceflag || arg_struct->flags->has_plusflag
@@ -69,8 +69,8 @@ void	manage_x_zeros_width(t_arg *arg_struct)
 
 int	manage_x_width(t_arg *arg_struct)
 {
-	int		len;
-    int     str_size;
+	int	len;
+	int	str_size;
 
 	len = 0;
 	str_size = 0;
@@ -89,7 +89,7 @@ int	manage_x_width(t_arg *arg_struct)
 		}
 	}
 	str_size = ft_strlen(arg_struct->str);
-    return (str_size);
+	return (str_size);
 }
 
 int	print_x(t_arg *arg_struct)
@@ -111,6 +111,6 @@ int	print_x(t_arg *arg_struct)
 			str_size += ft_putchar(' ');
 			len--;
 		}
-	}	
+	}
 	return (str_size);
 }

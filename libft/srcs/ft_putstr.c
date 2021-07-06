@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 16:15:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/15 10:42:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 21:42:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 int	ft_putstr(char *str)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(str);
-	write(1, str, len);
-	return (len);
+	return (write(1, str, len));
 }

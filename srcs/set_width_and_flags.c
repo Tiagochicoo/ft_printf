@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/04 18:51:03 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 17:02:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,11 @@ void	set_precision(char **input, t_arg *arg_struct, va_list *args)
 			arg_struct->precision = ft_atoi(num_str);
 		}
 		else if (**input == '*')
-		{
 			arg_struct->precision = va_arg(*args, int);
-			(*input)++;
-		}
 		else
 			arg_struct->precision = 0;
 	}
-	while (**input == '.' || ft_isdigit(**input))
+	while (**input == '.' || ft_isdigit(**input) || **input == '*')
 		(*input)++;
 }
 

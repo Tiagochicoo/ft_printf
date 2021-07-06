@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 22:36:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/04/21 22:37:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:06:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_wstrlen(const wchar_t *s)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (s[len] != L'\0')

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:42:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 14:42:20 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:05:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_addnfix(char **str, char fix_char, int len, int side)
 {
-	char *fix;
-	char *joined;
+	char	*fix;
+	char	*joined;
 
 	joined = NULL;
 	if (len && len != -1)
 	{
 		fix = ft_strnew(len);
-		if(!fix)
+		if (!fix)
 			return ;
 		ft_memset(fix, fix_char, len);
 		if (side == 2)
