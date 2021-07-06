@@ -6,13 +6,14 @@
 #    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/06 20:24:50 by tpereira         ###   ########.fr        #
+#    Updated: 2021/07/06 21:01:18 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libftprintf.a
 CC 			= gcc
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra 
+#-Werror
 SRCS 		= $(wildcard ./srcs/*.c)
 LIB_SRCS	= mv $(LIB_NAME)/libft.a ./$(NAME)
 OBJS 		= $(SRCS:.c=.o)
@@ -22,7 +23,7 @@ LIB_HEADER	= -I libft/includes
 INC_PATH 	= includes $(LIB_HEADER)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
+	$(CC) -g $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
 
 all:        $(NAME)
 
