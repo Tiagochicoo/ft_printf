@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
+#    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/06 17:49:51 by tpereira         ###   ########.fr        #
+#    Updated: 2021/07/06 20:24:50 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIB_HEADER	= -I libft/includes
 INC_PATH 	= includes $(LIB_HEADER)
 
 .c.o:
-	$(CC) -O3 $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
+	$(CC) $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
 
 all:        $(NAME)
 
@@ -40,6 +40,6 @@ fclean:     clean
 re:         fclean all
 
 cc: 
-	$(CC) $(CFLAGS) -g -O2 main_15.c libftprintf.a -o a.out && ./a.out 
+	$(CC) $(CFLAGS) -g main_15.c libftprintf.a -o a.out && ./a.out 
 
 .PHONY: bonus re fclean clean all
