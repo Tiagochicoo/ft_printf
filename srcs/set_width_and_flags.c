@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:48:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/06 19:54:23 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 22:24:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	set_width(char **input, t_arg *arg_struct, va_list *args)
 		}
 		num_str[i] = '\0';
 		arg_struct->fieldwidth = ft_atoi(num_str);
+		if (arg_struct->flags->has_minusflag)
+			arg_struct->fieldwidth *= -1;
 	}
 }
 

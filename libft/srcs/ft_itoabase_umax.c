@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoabase_umax.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 20:01:46 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/06 12:43:20 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 22:17:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ static int	get_unumlen(size_t num, int base)
 {
 	int	i;
 
-	i = 1;
-	while (num /= base)
+	i = 0;
+	while (num > 0)
 	{
+		num /= base;
 		i++;
 	}
 	return (i);
@@ -45,8 +46,11 @@ char	*ft_itoabase_umax(size_t num, int base)
 	}
 	str[len] = '\0';
 	str[--len] = basestr[num % base];
-	while (num /= base)
+	while (num > 0)
+	{
+		num /= base;
 		str[--len] = basestr[num % base];
+	}
 	free(basestr);
 	return (str);
 }

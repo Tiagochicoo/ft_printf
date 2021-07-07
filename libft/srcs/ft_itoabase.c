@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 08:53:07 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/07 20:02:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 21:04:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_numdigits(long n, int base)
 
 	if (n == 0)
 		return (1);
-	len = 1;
+	len = 0;
 	while (n != 0)
 	{
 		len++;
@@ -46,8 +46,8 @@ char	*ft_itoabase(long n, int base)
 		str[0] = '-';
 		i = -1;
 	}
-	else
-		str[0] = ' ';
+	else if (n == 0)
+		str[0] = '0';
 	while (n != 0)
 	{
 		str[--len] = rep_str[(n % base)*i];

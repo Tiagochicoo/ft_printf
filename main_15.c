@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:32:03 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/07 19:56:13 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 22:34:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int main(void)
 	char	*u = "-0";
 
 	len = write(1, "ft_printf:|", 11);
-	len = ft_printf("%x, %X",  j, j);
+	len = ft_printf(" -%-*c* -%-*c* ", 2, 0, -2, 0);
 	printf("|\nprintf:   |");
-	len2 = printf("%x, %X", j, j);
+	len2 = printf(" -%-*c* -%-*c* ", 2, 0, -2, 0);
 	printf("|\n");
 	if (len != len2)
 	{

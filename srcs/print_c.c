@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:05:00 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 17:27:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 22:42:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ int	manage_c_width(t_arg *arg_struct)
 	return (str_size);
 }
 
+void	check_flags(t_arg *arg_struct)
+{
+	if (arg_struct->fieldwidth > 0)
+		if (arg_struct->flags->has_starflag && arg_struct->flags->has_minusflag)
+			arg_struct->fieldwidth *= -1;
+}
+
 int	print_c(t_arg *arg_struct)
 {
 	int	str_size;
@@ -55,9 +62,10 @@ int	print_c(t_arg *arg_struct)
 	str_size += manage_c_width(arg_struct);
 	if (arg_struct->str == NULL)
 	{
-		str_size = ft_putchar(0);
-		if (arg_struct->fieldwidth < -1)
+		check_flags(arg_struct);
+		if (arg_struct->fieldwidth < 0)
 		{
+			str_size += ft_putchar(0);
 			while (arg_struct->fieldwidth++ < -1)
 				str_size += ft_putchar(' ');
 		}
@@ -65,6 +73,7 @@ int	print_c(t_arg *arg_struct)
 		{
 			while (arg_struct->fieldwidth-- > 1)
 				str_size += ft_putchar(' ');
+			str_size += ft_putchar(0);
 		}
 	}
 	else

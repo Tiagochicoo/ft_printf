@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_escape.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 17:05:00 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 17:51:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 21:53:53 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,35 @@ void	manage_escape_precision(t_arg *arg_struct)
 {
 	if (arg_struct->precision > -1)
 		ft_memmove(arg_struct->str, arg_struct->str, arg_struct->precision);
+}
+
+int	get_field_len(t_arg *arg_struct)
+{
+	int	len;
+
+	len = arg_struct->fieldwidth - ft_strlen(arg_struct->str);
+	if (arg_struct->flags->has_spaceflag || arg_struct->flags->has_plusflag
+		|| arg_struct->is_negative)
+		len = len - 1;
+	if (arg_struct->flags->has_hashflag && arg_struct->base == 8)
+		len = len - 2;
+	if (arg_struct->flags->has_hashflag && arg_struct->base == 16)
+		len = len - 2;
+	return (len);
+}
+
+void	manage_zeros(t_arg *arg_struct)
+{
+	int	len;
+
+	if (arg_struct->fieldwidth != -1 && arg_struct->flags->has_zeroflag)
+	{
+		len = get_field_len(arg_struct);
+		if (len > 0)
+			ft_addnfix(&(arg_struct->str), '0', len, 1);
+		if (arg_struct->is_negative)
+			ft_addnfix(&(arg_struct->str), '-', 1, 1);
+	}
 }
 
 int	manage_escape_width(t_arg *arg_struct)
@@ -52,6 +81,7 @@ int	print_escape(t_arg *arg_struct)
 
 	str_size = 0;
 	manage_escape_precision(arg_struct);
+	manage_zeros(arg_struct);
 	str_size += manage_escape_width(arg_struct);
 	if (arg_struct->str == NULL)
 	{
