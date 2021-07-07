@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_type_and_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/06 20:59:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 17:46:11 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	set_snum(t_arg *arg_struct, va_list *args)
 	set_is_negative(arg_struct);
 	if (snum < 0)
 	{
-		str = ft_itoabase_umax(snum, arg_struct->base);
+		str = ft_itoabase(snum, arg_struct->base);
 		if (arg_struct->specifier == 'x' || arg_struct->specifier == 'X')
 		{
 			ft_strrev(str);
