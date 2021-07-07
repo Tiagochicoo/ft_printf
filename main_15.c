@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_15.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 09:32:03 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/07 17:57:39 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 19:56:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int main(void)
 	char	*u = "-0";
 
 	len = write(1, "ft_printf:|", 11);
-	len = ft_printf(" %-3.2d %10.42d ", 1, -1);
+	len = ft_printf("%x, %X",  j, j);
 	printf("|\nprintf:   |");
-	len2 = printf(" %-3.2d %10.42d ", 1, -1);
+	len2 = printf("%x, %X", j, j);
 	printf("|\n");
 	if (len != len2)
 	{

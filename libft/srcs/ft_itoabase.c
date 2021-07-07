@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoabase.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 08:53:07 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 21:21:13 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 20:02:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ int	ft_numdigits(long n, int base)
 
 	if (n == 0)
 		return (1);
-	if (n < 0)
-		len = 1;
-	else
-		len = 0;
+	len = 1;
 	while (n != 0)
 	{
-		n /= base;
 		len++;
+		n /= base;
 	}
 	return (len);
 }
