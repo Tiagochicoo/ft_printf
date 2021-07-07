@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 14:47:48 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 19:41:15 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/07 13:22:04 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ void	ft_toupperx(char *str);
 # define DIGITS "0123456789"
 # define PRECISION_SEP "."
 # define MODIFIERS "hljz"
-# define CONVERSIONS "cspdiuxXnfge"
+# define CONVERSIONS "cspdiuxX%nfge"
 
 #endif

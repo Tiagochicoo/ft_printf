@@ -6,7 +6,7 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/08 22:20:21 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/06 17:49:57 by tpereira         ###   ########.fr        #
+#    Updated: 2021/07/07 13:30:52 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME =  libft.a
 SO =    libft.so
 
 .c.o:
-	$(CC) -g -O2 $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
+	$(CC) -g -pthread $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
 all:        $(NAME)
 $(NAME):	$(OBJS)
 	ar -rcs $(NAME) $(OBJS)
