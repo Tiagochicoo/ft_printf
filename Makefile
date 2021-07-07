@@ -3,14 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2021/07/07 13:30:42 by tpereira         ###   ########.fr        #
-=======
-#    Updated: 2021/07/06 21:01:18 by tpereira         ###   ########.fr        #
->>>>>>> 24ffd4297d38cfe21a578624e8da92bafa666f94
+#    Updated: 2021/07/07 16:47:58 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +40,7 @@ fclean:     clean
 	rm -f $(NAME)
 re:         fclean all
 
-cc: 
-<<<<<<< HEAD
-	$(CC) $(CFLAGS) -g -pthread main_15.c libftprintf.a -o a.out && ./a.out 
-=======
+cc:
 	$(CC) $(CFLAGS) -g main_15.c libftprintf.a -o a.out && ./a.out 
->>>>>>> 24ffd4297d38cfe21a578624e8da92bafa666f94
 
 .PHONY: bonus re fclean clean all
