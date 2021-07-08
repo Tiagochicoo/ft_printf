@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/08 22:20:21 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/07 21:47:33 by tpereira         ###   ########.fr        #
+#    Updated: 2021/07/08 10:05:10 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,5 +37,5 @@ bonus:
 	ar -rcs $(NAME) $(BOBJS)
 so:         $(OBJS) $(BOBJS)
 	gcc -shared -o $(SO) $(OBJS) $(BOBJS)
-	
+
 .PHONY: so bonus re fclean soclean clean all

@@ -6,14 +6,13 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/07 17:40:14 by tpereira         ###   ########.fr        #
+#    Updated: 2021/07/08 10:20:00 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libftprintf.a
 CC 			= gcc
-CFLAGS 		= -Wall -Wextra 
-#-Werror
+CFLAGS 		= -Wall -Wextra -Werror
 SRCS 		= $(wildcard ./srcs/*.c)
 LIB_SRCS	= mv $(LIB_NAME)/libft.a ./$(NAME)
 OBJS 		= $(SRCS:.c=.o)
@@ -31,7 +30,6 @@ $(NAME):	$(OBJS)
 	make -C $(LIB_NAME)
 	mv $(LIB_NAME)/libft.a ./$(NAME)
 	ar -rcs $(NAME) $(OBJS)
-
 clean:
 	make clean -C $(LIB_NAME)/
 	rm -f $(OBJS)
@@ -39,8 +37,8 @@ fclean:     clean
 	make fclean -C $(LIB_NAME)/
 	rm -f $(NAME)
 re:         fclean all
-
+bonus:		$(NAME)
 cc:
-	$(CC) $(CFLAGS) -g main_15.c libftprintf.a -o a.out && ./a.out 
+	$(CC) $(CFLAGS) -g main_15.c libftprintf.a -o a.out && ./a.out
 
 .PHONY: bonus re fclean clean all
