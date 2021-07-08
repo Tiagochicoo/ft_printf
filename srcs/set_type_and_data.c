@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_type_and_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:28:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/07 22:31:07 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:09:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,27 @@ void	set_unum(t_arg *arg_struct, va_list *args)
 		arg_struct->str = ft_itoabase_umax(unum, arg_struct->base);
 }
 
-void	set_snum(t_arg *arg_struct, va_list *args)
+void	set_snum(t_arg *arg_strct, va_list *args)
 {
 	intmax_t	snum;
 	char		*str;
 
 	snum = va_arg(*args, int);
-	arg_struct->data = &snum;
-	set_base(arg_struct);
-	set_is_negative(arg_struct);
-	if (snum < 0 && arg_struct->specifier != 'd' && arg_struct->specifier != 'i')
+	arg_strct->data = &snum;
+	set_base(arg_strct);
+	set_is_negative(arg_strct);
+	if (snum < 0 && arg_strct->specifier != 'd' && arg_strct->specifier != 'i')
 	{
-		str = ft_itoabase_umax(snum, arg_struct->base);
-		if (arg_struct->specifier == 'x' || arg_struct->specifier == 'X')
+		str = ft_itoabase_umax(snum, arg_strct->base);
+		if (arg_strct->specifier == 'x' || arg_strct->specifier == 'X')
 		{
 			ft_strrev(str);
 			str[8] = '\0';
 			ft_strrev(str);
-			if (arg_struct->specifier == 'X')
+			if (arg_strct->specifier == 'X')
 				ft_toupperx(str);
 		}
-		arg_struct->str = str;
+		arg_strct->str = str;
 		return ;
 	}
 	str = ft_itoabase(snum, arg_struct->base);

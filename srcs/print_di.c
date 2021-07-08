@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_di.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 17:40:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/07 22:43:44 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:09:43 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	manage_zeros_width(t_arg *arg_struct)
 			ft_addnfix(&(arg_struct->str), '0', len, 1);
 	}
 	if (arg_struct->is_negative && arg_struct->str[0] != '-')
-			ft_addnfix(&(arg_struct->str), '-', 1, 1);
+		ft_addnfix(&(arg_struct->str), '-', 1, 1);
 }
 
 int	manage_di_width(t_arg *arg_struct)
