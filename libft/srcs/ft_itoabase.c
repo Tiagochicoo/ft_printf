@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoabase.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 08:53:07 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/07 21:04:56 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:53:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_numdigits(long n, int base)
 {
@@ -50,7 +50,7 @@ char	*ft_itoabase(long n, int base)
 		str[0] = '0';
 	while (n != 0)
 	{
-		str[--len] = rep_str[(n % base)*i];
+		str[--len] = rep_str[(n % base) * i];
 		n /= base;
 	}
 	return (str);

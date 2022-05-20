@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:50:20 by tpereira          #+#    #+#             */
-/*   Updated: 2021/03/06 11:44:14 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:27:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {

@@ -12,7 +12,7 @@
 
 NAME 		= libftprintf.a
 CC 			= gcc
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -g
 SRCS 		= $(wildcard ./srcs/*.c)
 LIB_SRCS	= mv $(LIB_NAME)/libft.a ./$(NAME)
 OBJS 		= $(SRCS:.c=.o)
@@ -22,23 +22,21 @@ LIB_HEADER	= -I libft/includes
 INC_PATH 	= includes $(LIB_HEADER)
 
 .c.o:
-	$(CC) -g $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
+	@$(CC) $(CFLAGS) -c $^ -o $(<:.c=.o) -I $(INC_PATH)
 
 all:        $(NAME)
 
 $(NAME):	$(OBJS)
-	make -C $(LIB_NAME)
-	mv $(LIB_NAME)/libft.a ./$(NAME)
-	ar -rcs $(NAME) $(OBJS)
+	@make -C $(LIB_NAME)
+	@mv $(LIB_NAME)/libft.a ./$(NAME)
+	@ar -rcs $(NAME) $(OBJS)
 clean:
-	make clean -C $(LIB_NAME)/
-	rm -f $(OBJS)
+	@make clean -C $(LIB_NAME)/
+	@rm -f $(OBJS)
 fclean:     clean
-	make fclean -C $(LIB_NAME)/
-	rm -f $(NAME)
+	@make fclean -C $(LIB_NAME)/
+	@rm -f $(NAME)
 re:         fclean all
 bonus:		$(NAME)
-cc:
-	$(CC) $(CFLAGS) -g main_15.c libftprintf.a -o a.out && ./a.out
 
 .PHONY: bonus re fclean clean all

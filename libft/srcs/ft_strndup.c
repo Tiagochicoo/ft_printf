@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:55:38 by tpereira          #+#    #+#             */
-/*   Updated: 2021/04/12 14:57:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:27:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** function free(3). If insufficient memory is available, NULL is returned.
 */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strndup(const char *s1, size_t n)
 {

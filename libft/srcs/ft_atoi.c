@@ -6,11 +6,11 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:11:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 21:27:02 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:26:53 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_atoi(const char *str)
 {

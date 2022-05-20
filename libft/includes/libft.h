@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 23:02:16 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 19:41:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/17 22:23:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 int				ft_putchar(char c);
 int				ft_putstr(char *str);
@@ -32,9 +34,10 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *haystack, const char *needle,
-size_t len);
+					size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
+int				ft_isnumber(char *str);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
@@ -44,19 +47,19 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			*ft_calloc(size_t count, size_t size);
 char			*ft_strdup(const char *s);
-
 char			*ft_strsub(char const *s, size_t start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
-char			**ft_split(char const *str, char charset);
+char			**ft_split(char const *str, char *charset);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+char			*ft_addchartostr(char *str, char c);
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -71,19 +74,21 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-void (*del)(void *));
+					void (*del)(void *));
 
 void			ft_addnfix(char **str, char fix_char, int len, int side);
 char			*ft_strnew(size_t size);
 char			*ft_strndup(const char *str, size_t n);
 int				ft_putwstr(wchar_t *ws);
-int 			ft_countletter(char *str, char c);
-char    		*ft_itoabase_umax(size_t num, int base);
-char    		*ft_chrtostr(char c);
+int				ft_countletter(char *str, char c);
+char			*ft_itoabase_umax(size_t num, int base);
+char			*ft_chrtostr(char c);
 size_t			ft_wstrlen(const wchar_t *s);
 wchar_t			*ft_wstrdup(const wchar_t *wstr);
 wchar_t			*ft_wchrtostr(wchar_t wchar);
 char			*ft_itoabase(long num, int base);
 char			*ft_strrev(char *str);
+int				get_next_line(int fd, char **line);
+long long		ft_word_count(char *str, char charset);
 
 #endif

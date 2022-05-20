@@ -6,11 +6,11 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 20:02:09 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 18:27:46 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:27:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

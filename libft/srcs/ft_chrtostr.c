@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 21:43:02 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 21:25:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:27:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 ** ft_strdup mallocs a new string from a char
 */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_chrtostr(char c)
 {

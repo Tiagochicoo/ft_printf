@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 22:39:39 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 18:06:43 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:27:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 ** ft_wstrdup mallocs a new wide string from a wide char
 */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 wchar_t	*ft_wchrtostr(wchar_t wchar)
 {

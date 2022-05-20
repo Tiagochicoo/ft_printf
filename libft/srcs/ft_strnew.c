@@ -6,11 +6,11 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:45:52 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 18:08:56 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/18 23:27:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 /*
 ** The function ft_strnew() allocates with malloc(3) and returns a fresh
@@ -24,21 +24,8 @@ char	*ft_strnew(size_t size)
 
 	if (size == 0)
 	{
-		str = (char *)malloc(sizeof(*str) * (1));
-		if (str)
-		{
-			ft_memset(str, '\0', (1));
-			return (str);
-		}
-	}
-	else if (size)
-	{
-		str = (char *)malloc(sizeof(*str) * (size + 1));
-		if (str)
-		{
-			ft_memset(str, '\0', (size + 1));
-			return (str);
-		}
+		str = (char *)ft_calloc(size, sizeof(*str) * (1));
+		return (str);
 	}
 	return (NULL);
 }

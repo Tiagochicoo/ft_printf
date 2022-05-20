@@ -3,65 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 08:59:57 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 18:14:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/05/17 23:34:06 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-static long long	word_count(char *str, char charset)
+char	finish(char buffer[], int count[], char **str_arr)
 {
-	long long	count;
+	buffer[count[1]] = '\0';
+	count[2] = sizeof(char) * (ft_strlen(buffer) + 1);
+	str_arr[count[0]] = malloc(count[2]);
+	ft_strlcpy(str_arr[count[0]], buffer, ft_strlen(buffer) + 1);
+	return ('\0');
+}
 
+void	str_alloc(const char *str, char *charset, int i, char **str_arr)
+{
+	int		count[4];
+	char	buffer[1638954];
+
+	count[0] = 0;
+	count[3] = ft_strlen(str);
+	while (i < count[3])
+	{
+		while (i < count[3])
+		{
+			if (ft_strchr(charset, str[i]) == NULL)
+				break ;
+			i++;
+		}
+		count[1] = 0;
+		while (i < count[3])
+		{
+			if (ft_strchr(charset, str[i]) != NULL)
+				break ;
+			buffer[count[1]] = str[i++];
+			count[1] += 1;
+		}
+		if (count[1] > 0)
+		{
+			buffer[count[1]] = finish(buffer, count, str_arr);
+			count[0] += 1;
+		}
+	}
+}
+
+char	**ft_split(char const *str, char *charset)
+{
+	int		len;
+	int		count;
+	int		i;
+	int		j;
+	char	**str_arr;
+
+	len = ft_strlen(str);
 	count = 0;
-	while (*str)
-	{
-		if (*str != charset)
-		{
-			++count;
-			while (*str && *str != charset)
-				++str;
-		}
-		if (*str != 0)
-			str++;
-	}
-	return (count);
-}
-
-static void	ftl_strcpy(char *dest, char *from, char *to)
-{
-	while (from < to)
-		*(dest++) = *(from++);
-	*dest = 0;
-}
-
-char	**ft_split(char const *str, char charset)
-{
-	char		**str_arr;
-	long long	i;
-	char		*from;
-
-	str_arr = (char **)malloc(sizeof(char *)
-			* word_count((char *)str, charset) + 1);
-	if (!str || !(str_arr))
-		return (NULL);
 	i = 0;
-	while (*str)
+	while (i < len)
 	{
-		if (*str != charset)
-		{
-			from = (char *)str;
-			while (*str && *str != charset)
-				++str;
-			str_arr[i] = (char *)malloc(str - from + 1);
-			ftl_strcpy(str_arr[i++], from, (char *)str);
-		}
-		if (*str != 0)
-			++str;
+		while (i < len)
+			if (ft_strchr(charset, str[i++]) == NULL)
+				break ;
+		j = i;
+		while (i < len)
+			if (ft_strchr(charset, str[i++]) != NULL)
+				break ;
+		if (i > j)
+			count += 1;
 	}
-	str_arr[i] = 0;
+	str_arr = malloc(sizeof(char *) * (count + 1));
+	str_arr[count] = NULL;
+	str_alloc(str, charset, 0, str_arr);
 	return (str_arr);
 }
