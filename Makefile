@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
+#    By: tpereira <tpereira@42student.fr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/03 14:35:13 by tpereira          #+#    #+#              #
-#    Updated: 2021/07/08 10:20:00 by tpereira         ###   ########.fr        #
+#    Updated: 2022/05/20 19:53:44 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,5 +38,8 @@ fclean:     clean
 	@rm -f $(NAME)
 re:         fclean all
 bonus:		$(NAME)
+
+cc:
+	@$(CC) $(CFLAGS) -g main.c libftprintf.a && ./a.out
 
 .PHONY: bonus re fclean clean all
